@@ -83,10 +83,17 @@ function mouseUp(e) {
     mouseDown = false;
 }
 
+function resetBoard(e){
+    //resets the board
+    squares.forEach(square => square.style.backgroundColor = 'rgb(255, 255, 255)')
+}
 
 const squares = Array.from(document.querySelectorAll('.square'));
 squares.forEach(square => square.addEventListener('mousedown', mouseIsDown))
 squares.forEach(square => square.addEventListener('mouseover', mouseMovedAndDown))
 squares.forEach(square => square.addEventListener('mouseup', mouseUp))
+
+const resetButton = document.querySelector('.reset-button');
+resetButton.addEventListener('click', resetBoard)
 
 choicesArray.forEach(choice => choice.addEventListener('click', unCheckRest))
