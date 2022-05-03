@@ -3,6 +3,15 @@ body {
     flex-direction: column;
 }
 
+.title {
+    align-self: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+}
+
 .drawing-board {
     display: flex;
     flex-wrap: wrap;
