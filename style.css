@@ -7,13 +7,11 @@ body {
     display: flex;
     flex-wrap: wrap;
     padding: 0;
-    width: 620px;
-    height: 620px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.318);
 }
 
 .square {
     margin: 0;
-    background-color: aqua;
     flex: 0 0 auto;
 }
 
