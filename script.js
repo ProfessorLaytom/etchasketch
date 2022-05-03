@@ -27,12 +27,14 @@ function makeGrid(gridSize){
 makeGrid(30);
 
 function unCheckRest(e) {
-    //unchecks all other parameters for drawing
+    //uncheck all other parameters for drawing
     let toTest = e.target.parentElement.classList[1]
     choicesArray.forEach(choice => (choice.parentElement.classList[1] !== toTest) ? choice.checked = false : 0)
 }
 
 function randomRGB(){
+    //generates random numbers between 0 and 255, returns a
+    //rgb string
     let randomR = Math.floor(Math.random()*256);
     let randomG = Math.floor(Math.random()*256);
     let randomB = Math.floor(Math.random()*256);
@@ -48,6 +50,7 @@ function stringToRGBArray(rgb){
 }
 
 function draw(e) {
+    //looks how to draw and modifies the background color for drawing
     if (black.checked) {
         e.target.style.backgroundColor = 'rgb(0,0,0)';
     }else if (rainbow.checked){
