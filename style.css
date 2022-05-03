@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.drawing-board {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    width: 620px;
+    height: 620px;
+}
+
+.square {
+    margin: 0;
+    background-color: aqua;
+    flex: 0 0 auto;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+}
+
