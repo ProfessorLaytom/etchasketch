@@ -9,12 +9,14 @@ drawingBoard.style.height = drawingBoardSize;
 const choicesArray = Array.from(document.querySelectorAll('input[type="checkbox"]'));
 let [color, rainbow, eraser, darken, lighten] = choicesArray
 
+//initialize the slider and the grid
 const slider = document.querySelector('.slider');
 const sliderValue = document.querySelector('.grid-size')
 let gridSize = slider.value ;
 sliderValue.textContent = `${gridSize}x${gridSize}`
 
 slider.oninput = function () {
+    //dynamically changes the grid resolution
     gridSize = slider.value ;
     sliderValue.textContent = `${gridSize}x${gridSize}`
     makeGrid(gridSize);
@@ -24,6 +26,8 @@ slider.oninput = function () {
     squares.forEach(square => square.addEventListener('mouseup', mouseUp))
 }
 function hexAToRGBA(hexCode, opacity=1) {
+    //converts hexadecimal to rgb in order to apply darkening and
+    //lightening effects
     let hex = hexCode.replace('#', '');
     
     if (hex.length === 3) {
@@ -45,7 +49,7 @@ function hexAToRGBA(hexCode, opacity=1) {
 
 
 function makeGrid(gridSize){
-    //makes the grid
+    //makes the grid, deletes the old grid before that
     while (drawingBoard.firstChild){
         drawingBoard.removeChild(drawingBoard.firstChild)
     }
@@ -79,7 +83,7 @@ function randomRGB(){
 }
 
 function stringToRGBArray(rgb){
-    //converts the string to an array of 3 rgb values
+    //converts the rgb string to an array of 3 rgb values
     rgb = rgb.substring(4, rgb.length-1)
     rgb = rgb.replace(/ /g, '')
     rgb = rgb.split(',');
@@ -87,7 +91,7 @@ function stringToRGBArray(rgb){
 }
 
 function draw(e) {
-    //looks how to draw and modifies the background color for drawing
+    //looks what to draw and modifies the background color for drawing
     if (color.checked) {
         let chosenColor = document.querySelector('.chosen-color').value
         e.target.style.backgroundColor = hexAToRGBA(chosenColor);
@@ -106,6 +110,8 @@ function draw(e) {
     }
 }
 
+//next three functions handles the mouse clicks (and if it is
+//still down) in order to draw only when down.
 function mouseIsDown(e) {
     mouseDown = true;
     draw(e)
