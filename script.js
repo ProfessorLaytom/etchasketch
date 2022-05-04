@@ -129,6 +129,7 @@ function mouseUp(e) {
 
 function resetBoard(e){
     //resets the board
+    const squares = Array.from(document.querySelectorAll('.square'));
     squares.forEach(square => square.style.backgroundColor = 'rgb(255, 255, 255)')
 }
 
