@@ -2,7 +2,7 @@ const drawingBoard = document.querySelector('.drawing-board');
 let mouseDown = false; //for tracking the mouse when clicked continuously
 
 
-let drawingBoardSize = '620px'
+let drawingBoardSize = '580px'
 drawingBoard.style.width = drawingBoardSize;
 drawingBoard.style.height = drawingBoardSize;
 //for the drawing color
