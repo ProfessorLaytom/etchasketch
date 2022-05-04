@@ -9,6 +9,20 @@ drawingBoard.style.height = drawingBoardSize;
 const choicesArray = Array.from(document.querySelectorAll('input[type="checkbox"]'));
 let [color, rainbow, eraser, darken, lighten] = choicesArray
 
+const slider = document.querySelector('.slider');
+const sliderValue = document.querySelector('.grid-size')
+let gridSize = slider.value ;
+sliderValue.textContent = `${gridSize}x${gridSize}`
+
+slider.oninput = function () {
+    gridSize = slider.value ;
+    sliderValue.textContent = `${gridSize}x${gridSize}`
+    makeGrid(gridSize);
+    const squares = Array.from(document.querySelectorAll('.square'));
+    squares.forEach(square => square.addEventListener('mousedown', mouseIsDown))
+    squares.forEach(square => square.addEventListener('mouseover', mouseMovedAndDown))
+    squares.forEach(square => square.addEventListener('mouseup', mouseUp))
+}
 function hexAToRGBA(hexCode, opacity=1) {
     let hex = hexCode.replace('#', '');
     
@@ -32,8 +46,11 @@ function hexAToRGBA(hexCode, opacity=1) {
 
 function makeGrid(gridSize){
     //makes the grid
-    let width = Math.round(parseInt(drawingBoardSize)/gridSize*100)/100;
-    let height = Math.round(parseInt(drawingBoardSize)/gridSize*100)/100;
+    while (drawingBoard.firstChild){
+        drawingBoard.removeChild(drawingBoard.firstChild)
+    }
+    let width = (parseInt(drawingBoardSize)-0.4)/gridSize; //crude fix in order to fix the grid sometime overflowing because of imperfect div sizes
+    let height = (parseInt(drawingBoardSize))/gridSize;
     for (let i = 0; i < gridSize; i++){
         for (let j = 0; j< gridSize; j++){
             const singleSquare = document.createElement('div');
@@ -44,7 +61,7 @@ function makeGrid(gridSize){
     }
 }
 
-makeGrid(30);
+makeGrid(gridSize);
 
 function unCheckRest(e) {
     //uncheck all other parameters for drawing

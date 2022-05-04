@@ -39,8 +39,8 @@ body {
     align-items: center;
     justify-content: flex-start;
     margin: 30px;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 7px;
+    margin-top: 7px;
     border: 2px solid rgba(0, 0, 0, 0.203);
     background-color: beige;
     border-radius: 10px;
@@ -153,4 +153,14 @@ button:hover {
     align-self: center;
     margin-top: auto;
     margin-bottom: 4px;
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid-size {
+    margin: 0;
 }
