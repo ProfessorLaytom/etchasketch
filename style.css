@@ -29,3 +29,45 @@ body {
     align-items: baseline;
 }
 
+input[type='checkbox']{
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+label {
+    width: 90px;
+    height: 40px;
+    display: block;
+    background-color: rgb(200, 200, 200);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.5s;
+    position: relative;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.3);
+}
+
+label::after{
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    border-radius: 500px;
+    transition: 0.5s;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+input:checked + label:after {
+    left: calc(100% - 3px);
+    transform: translateX(-100%);
+    }
+
+input:checked + label {
+    background-color: #23cef0;
+}
+
+label:active:after {
+    width: 50px;
+}
