@@ -1,18 +1,25 @@
+html{
+    height: 100%;
+}
+
 body {
     display: flex;
     flex-direction: column;
     font-family: 'Roboto';
     background-color: rgb(255, 249, 241);
+    height: 100%;
+    margin: 0;
 }
 
 .title {
     align-self: center;
     font-size: 50px;
+    margin: 20px;
 }
 
 .container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .drawing-board {
@@ -30,7 +37,7 @@ body {
 .checkbox {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     margin: 30px;
     margin-bottom: 10px;
     margin-top: 10px;
@@ -119,4 +126,30 @@ button:hover {
 
 .for-centering {
     width: 330px;
+}
+
+.chosen-color {
+    outline: none;
+    padding: 0;
+    border: 0;
+    height:40px;
+    width: 40px;
+    transition: 0.5s;
+}
+
+.chosen-color:hover {
+    transform: scale(1.2);
+}
+
+::-webkit-color-swatch,
+::-moz-color-swatch {
+    border-color: transparent;
+}
+
+.footer{
+    font-family: sans-serif;
+    font-size: 14px;
+    align-self: center;
+    margin-top: auto;
+    margin-bottom: 4px;
 }
